@@ -185,7 +185,7 @@ export class HAComfoAirMQTTCard extends LitElement {
       position: absolute;
       width: 140px;
       left: 50%;
-      margin-left: -190px;
+      margin-left: -160px;
     }
 
     .temperatures-in {
@@ -378,7 +378,7 @@ export class HAComfoAirMQTTCard extends LitElement {
         ></ha-icon>`;
     }
 
-    const inactive = this.hass.states[this.config.filterStatusSensor] && this.hass.states[this.config.filterStatusSensor].state != 'on';
+    const inactive = this.hass.states[this.config.filterStatusSensor] && this.hass.states[this.config.filterStatusSensor].state != 'off';
     return html`
       <ha-icon
         class=${inactive ? 'inactive' : 'warning'}
@@ -396,7 +396,7 @@ export class HAComfoAirMQTTCard extends LitElement {
         ></ha-icon>`;
     }
 
-    const active = this.hass.states[this.config.bypassValveSensor] && this.hass.states[this.config.bypassValveSensor].state == '1';
+    const active = this.hass.states[this.config.bypassValveSensor] && this.hass.states[this.config.bypassValveSensor].state == 'on';
     return html`
       <ha-icon
         class=${active ? '' : 'inactive'}
@@ -414,7 +414,7 @@ export class HAComfoAirMQTTCard extends LitElement {
         ></ha-icon>`;
     }
 
-    const active = this.hass.states[this.config.preheatingStatusSensor] && this.hass.states[this.config.preheatingStatusSensor].state == '1';
+    const active = this.hass.states[this.config.preheatingStatusSensor] && this.hass.states[this.config.preheatingStatusSensor].state == 'on';
     return html`
       <ha-icon
         class=${active ? '' : 'inactive'}
